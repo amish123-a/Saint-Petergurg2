@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1824: Во власти стихии — Летопись Петербурга</title>
+</head>
+<body>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: #0a0f18; 
+            color: #b0bec5; 
+            line-height: 1.8; 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        .nav-block {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-link { 
+            color: #c5a059; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+            padding: 5px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-link:hover { 
+            color: #fff;
+            border-bottom: 1px solid #c5a059;
+            transform: translateX(-5px);
+        }
+
+        .hero-image { 
+            width: 100%; 
+            height: 500px; 
+            background: linear-gradient(to bottom, rgba(10,15,24,0) 60%, rgba(10,15,24,1)), 
+                        url('вода1.jpg') center/cover;
+            border-radius: 15px; 
+            margin-bottom: -60px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .content-wrap {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        h1 { 
+            color: #fff; 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            font-family: 'Playfair Display', serif; 
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .date-subtitle {
+            font-size: 1.3rem; 
+            color: #c5a059;            
+            font-weight: 300;
+            margin-bottom: 40px;            
+            letter-spacing: 2px;
+        }
+
+        .quote { 
+            border-left: 3px solid #c5a059; 
+            padding: 20px 30px; 
+            font-style: italic; 
+            margin: 40px 0; 
+            color: #fff;
+            background: rgba(197, 160, 89, 0.05);
+            font-size: 1.15rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .gallery { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px; 
+            margin: 50px 0; 
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            background: #161d27;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .gallery img { 
+            width: 100%; 
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: 0.7s; 
+            filter: grayscale(40%);
+        }
+
+        .gallery img:hover { 
+            transform: scale(1.1); 
+            filter: grayscale(0%);
+        }
+
+        h2 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 20px 0;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        footer { 
+            margin-top: 80px; 
+            text-align: center; 
+            border-top: 1px solid #1e2632; 
+            padding: 40px 0; 
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: #546e7a;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .hero-image { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="nav-block">
+            <a href="history.html" class="back-link">← К списку событий</a>
+        </div>
+
+        <div class="hero-image"></div>
+
+        <div class="content-wrap">
+            <h1>1824: Во власти стихии</h1>
+            <div class="date-subtitle">7 НОЯБРЯ | САНКТ-ПЕТЕРБУРГ</div>
+
+            <div class="quote">
+                "Осада! приступ! злые волны, как воры, лезут в окна. Челны с разбега стекла бьют кормой..." — Александр Пушкин, «Медный всадник».
+            </div>
+
+            <h2>День великого бедствия</h2>
+            <p>
+                7 ноября 1824 года Санкт-Петербург пережил самое страшное наводнение за всю свою историю. Буря, пришедшая с Финского залива, погнала невскую воду вспять. К полудню вода поднялась на 421 сантиметр выше ординара, превратив улицы города в бушующие реки.
+            </p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="наводнение.jpg" alt="Невский проспект в воде">
+                </div>
+                <div class="gallery-item">
+                    <!-- Иллюстрация к Медному Всаднику -->
+                    <img src="медный наводнение.webp" alt="Стихия в Петербурге">
+                </div>
+            </div>
+
+            <h2>Город под водой</h2>
+            <p>
+                Вода прибывала с такой скоростью, что люди не успевали спасаться. Деревянные дома сносило целиком, мосты срывало с петель. Император Александр I, наблюдая за катастрофой с балкона Зимнего дворца, произнес знаменитую фразу: «За это Бог взыщет с меня, а не с народа». На следующий день город представлял собой груду развалин, покрытых илом и обломками судов.
+            </p>
+
+            <p>
+                Трагедия 1824 года навсегда изменила облик столицы. Были приняты новые правила застройки, а в память о событии на стенах домов по всему городу появились гранитные таблички с отметкой уровня воды, которые до сих пор напоминают о хрупкости человека перед лицом природы.
+            </p>
+
+            <footer>
+                © 2026 Летопись Петербурга | Хроники природных катастроф
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

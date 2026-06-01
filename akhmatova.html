@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПЕРСОНА | Величие Петербурга</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,900;1,900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0a1118;
+            --card-bg: rgba(18, 27, 38, 0.96);
+            --text-light: #ffffff;
+            --text-gray: #b0bec5;
+        }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body { 
+            background-color: var(--dark); 
+            color: var(--text-light); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+        
+        .bg-photo {
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; 
+            height: 100vh;
+            background-image: url(анна.webp); 
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0.12; 
+            filter: grayscale(100%); 
+            z-index: -1;
+        }
+
+        .nav-back { 
+            position: fixed; 
+            top: 40px; 
+            left: 50px; 
+            z-index: 1000; 
+        }
+        .nav-back a { 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-weight: 700; 
+            transition: 0.4s; 
+        }
+        .nav-back a:hover { 
+            letter-spacing: 6px; 
+            opacity: 0.8; 
+        }
+
+        .hero { 
+            height: 100vh; 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            align-items: center; 
+            padding: 0 10%; 
+        }
+        .hero-left h1 { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: clamp(3.5rem, 8vw, 8rem); 
+            line-height: 0.85; 
+            text-transform: uppercase; 
+            color: var(--gold); 
+        }
+        .hero-right { 
+            text-align: right; 
+            border-right: 2px solid var(--gold); 
+            padding: 40px 40px 40px 0; 
+        }
+        .hero-right p { 
+            font-size: 1.3rem; 
+            font-weight: 300; 
+            color: var(--text-gray); 
+            max-width: 400px; 
+            margin-left: auto; 
+        }
+
+        .content { 
+            padding: 0 10% 150px; 
+            display: grid; 
+            grid-template-columns: repeat(12, 1fr); 
+            gap: 40px; 
+        }
+        .section-title { 
+            grid-column: 1 / 13; 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            color: var(--text-light); 
+            margin: 80px 0 40px; 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+        }
+        .section-title span { 
+            border-bottom: 2px solid var(--gold); 
+            padding-bottom: 5px; 
+        }        
+        .floating-box { 
+            background: var(--card-bg); 
+            padding: 60px; 
+            grid-column: 5 / 13; 
+            border-left: 1px solid var(--gold); 
+            position: relative; 
+            backdrop-filter: blur(10px); 
+            margin-bottom: 40px; 
+        }
+        .floating-box.left { 
+            grid-column: 1 / 9; 
+            border-left: none; 
+            border-right: 1px solid var(--gold); 
+            text-align: right; 
+        }
+        .big-number { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: 8rem; 
+            color: transparent; 
+            -webkit-text-stroke: 1px var(--gold); 
+            opacity: 0.15; 
+            position: absolute; 
+            top: -40px; 
+            left: -20px; 
+            z-index: -1; 
+            font-weight: 900; 
+        }
+        .left .big-number { 
+            left: auto; 
+            right: -20px; 
+        }
+        .floating-box h3 { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: 2rem; 
+            color: var(--gold); 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+        }
+        .floating-box p { 
+            color: var(--text-gray); 
+            font-size: 1.1rem; 
+            line-height: 1.8; 
+            font-weight: 300; 
+        }
+
+        footer { 
+            padding: 80px 10%; 
+            border-top: 1px solid rgba(197, 160, 89, 0.1); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: #070c11; 
+        }
+        .footer-logo { 
+            font-family: 'Bodoni Moda', serif; 
+            font-size: 1.5rem; 
+            letter-spacing: 5px; 
+            color: var(--text-light); 
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; padding-top: 100px; height: auto; }
+            .hero-right { text-align: center; border-right: none; border-top: 1px solid var(--gold); padding: 30px 0; margin-top: 30px; }
+            .content { display: block; }
+            .floating-box, .floating-box.left { text-align: left; border: 1px solid var(--gold); padding: 30px; margin-bottom: 60px; }
+            .nav-back { top: 20px; left: 20px; }
+        }
+          .nav-back a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: 0.4s;
+        }
+
+        .nav-back a:hover {
+            letter-spacing: 6px;
+            opacity: 0.8;
+        }
+
+        .nav-back a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-back"> <a href="index.html#people">← На главную</a></div>
+    <div class="bg-photo"></div>
+
+           <section class="hero">
+        <div class="hero-left"><h1>Душа<br>Века</h1></div>
+        <div class="hero-right"><p>Голос, который не замолчал в годы самых страшных испытаний Ленинграда.</p></div>
+    </section>
+    <div class="content">
+        <h2 class="section-title"><span>Серебряный век</span></h2>
+        <div class="floating-box">
+            <span class="big-number">1912</span>
+            <h3>Вечер</h3>
+            <p>Первые шаги великой поэтессы в подвале «Бродячей собаки». Эпоха акмеизма, туманов и встреч у Царскосельских прудов.</p>
+        </div>
+        <h2 class="section-title" style="justify-content: flex-end;"><span>Стойкость</span></h2>
+        <div class="floating-box left">
+            <span class="big-number">1940</span>
+            <h3>Реквием</h3>
+            <p>Поэма-памятник, созданная в Фонтанном доме. Ахматова стала живым символом петербургской интеллигенции, сохранившей достоинство в беде.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">PETROPOLIS</div>
+        <div style="text-align: right; color: var(--gold);">1703 — 2026</div>
+    </footer>
+</body>
+</html>

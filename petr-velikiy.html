@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПЕТР ВЕЛИКИЙ | Эпоха преобразований</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,900;1,900&family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0a1118;
+            --card-bg: rgba(18, 27, 38, 0.95);
+            --text-light: #ffffff;
+            --text-gray: #b0bec5;
+            --accent-soft: rgba(197, 160, 89, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .bg-photo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200vh;
+            background-image: url('Снимок экрана 2026-04-29 110643.png'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            filter: grayscale(100%);
+            z-index: -1;
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 40px;
+            left: 50px;
+            z-index: 1000;
+        }
+
+        .nav-back a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-back a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: 0.4s;
+        }
+
+        .nav-back a:hover {
+            letter-spacing: 6px;
+            opacity: 0.8;
+        }
+
+        .nav-back a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;            
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .hero-left h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(4rem, 10vw, 9rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            color: var(--gold);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-right {
+            text-align: right;
+            border-right: 2px solid var(--gold);
+            padding: 40px 40px 40px 0;
+            animation: fadeInRight 1.5s ease;
+        }
+
+        .hero-right p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--text-gray);
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        .content {
+            padding: 0 10% 150px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+        }
+
+        .section-title {
+            grid-column: 1 / 13;
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--text-light);
+            margin: 100px 0 60px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .section-title span {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        .floating-box {
+            background: var(--card-bg);
+            padding: 80px 60px;
+            grid-column: 5 / 13;
+            border-left: 1px solid var(--gold);
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: 0.5s;
+            margin-bottom: 60px;
+        }
+
+        .floating-box:hover {
+            background: rgba(25, 35, 48, 0.98);
+            transform: translateY(-10px);
+        }
+
+        .floating-box.left {
+            grid-column: 1 / 9;
+            border-left: none;
+            border-right: 1px solid var(--gold);
+            text-align: right;
+        }
+
+        .big-number {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 9rem;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--gold);
+            opacity: 0.15;
+            position: absolute;
+            top: -50px;
+            left: -30px;
+            z-index: -1;
+            font-weight: 900;
+        }
+
+        .left .big-number {
+            left: auto;
+            right: -30px;
+        }
+
+        .floating-box h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .floating-box p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        footer {
+            padding: 100px 10% 60px;
+            border-top: 1px solid var(--accent-soft);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #070c11;
+        }
+
+        .footer-logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            color: var(--text-light);
+        }
+
+  
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+  
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; text-align: center; height: auto; padding-top: 150px; padding-bottom: 100px;}
+            .hero-right { text-align: center; border-right: none; border-top: 1px solid var(--gold); padding: 40px 0; margin: 40px auto 0; }
+            .hero-right p { margin: 0 auto; }
+            .content { display: block; }
+            .floating-box, .floating-box.left { text-align: left; border: 1px solid var(--gold); margin-bottom: 80px; padding: 40px; }
+            .big-number { font-size: 6rem; top: -30px; left: 20px; }
+            .nav-back { top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-back">
+    <div class="nav-back"> <a href="index.html#people">← На главную</a></div>
+    </div>
+
+    <div class="bg-photo"></div>
+
+    <section class="hero">
+        <div class="hero-left">
+            <h1>ПЕРВЫЙ<br>СРЕДИ<br>ЛУЧШИХ</h1>
+        </div>
+        <div class="hero-right">
+            <p>Человек, который сломал старый мир, чтобы построить Империю.</p>
+        </div>
+    </section>
+
+    <div class="content">
+        
+        <h2 class="section-title">
+            <span>Великое посольство</span>
+        </h2>  
+
+        <div class="floating-box">
+            <span class="big-number">1697</span>
+            <h3>Инкогнито в Европе</h3>
+            <p>
+                Под именем урядника Петра Михайлова царь отправился в уникальное путешествие. Он лично изучал кораблестроение на верфях Голландии и Англии, впитывая знания, которые вскоре изменят облик России навсегда.
+            </p>
+        </div>
+
+        <h2 class="section-title" style="justify-content: flex-end;">
+            <span>Железная воля</span>
+        </h2>        
+
+        <div class="floating-box left">
+            <span class="big-number">1703</span>
+            <h3>Град на болотах</h3>
+            <p>
+                Вопреки природе и логике, в устье Невы был заложен город. Петербург строился не просто как крепость, а как символ новой, рациональной и мощной страны, смотрящей в сторону моря.
+            </p>
+        </div>
+
+        <h2 class="section-title">
+            <span>Рождение Империи</span>
+        </h2>
+
+        <div class="floating-box">
+            <span class="big-number">1721</span>
+            <h3>Венец трудов</h3>
+            <p>
+                Победа в Северной войне и подписание Ништадтского мира позволили России принять статус Империи. Пётр стал «Отцом Отечества», заложив фундамент государства на 200 лет вперед.
+            </p>
+        </div>
+       
+    </div>
+
+    <footer>
+        <div class="footer-logo">ИСТОРИЯ В КАМНЕ</div>
+        <div style="text-align: right;">
+            <p style="color: var(--gold); letter-spacing: 2px;">1672 — 1725</p>
+            <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 10px;">САНКТ-ПЕТЕРБУРГ</p>
+        </div>
+    </footer>
+
+</body>
+</html>

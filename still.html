@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Имперский стиль — Золотой век архитектуры</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: #0d1117; 
+            color: #b0bec5; 
+            line-height: 1.8; 
+            font-family: 'Montserrat', sans-serif; 
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        .nav-block {
+            margin-bottom: 25px;
+        }
+
+        .back-link { 
+            color: #c5a059; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .back-link:hover { 
+            color: #fff;
+            transform: translateX(-5px); 
+        }
+
+        .header-bg { 
+            width: 100%; 
+            height: 450px; 
+            background: linear-gradient(to bottom, rgba(13,17,23,0) 50%, rgba(13,17,23,1)),
+                        url('имперский питер.jpeg') center/cover;
+            border-radius: 0 0 50px 50px; 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 { 
+            color: #fff; 
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem; 
+            text-align: center; 
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .info-block { 
+            background: #161b22; 
+            padding: 40px; 
+            border-radius: 20px; 
+            border-left: 5px solid #c5a059; 
+            margin: 40px 0;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-block h3 {
+            color: #c5a059;
+            font-family: 'Playfair Display', serif;            
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .grid-gallery { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 20px; 
+            margin-top: 40px; 
+        }
+
+        .grid-gallery img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            transition: 0.5s;
+            filter: brightness(80%);
+        }
+
+        .grid-gallery img:hover { 
+            transform: translateY(-10px);
+            filter: brightness(110%);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        h2 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #c5a059;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #21262d;
+            color: #484f58;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .grid-gallery { grid-template-columns: 1fr; }
+            .header-bg { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="nav-block">
+            <a href="history.html" class="back-link">← К списку событий</a>
+        </nav>
+    </div>
+
+    <div class="header-bg"></div>
+
+    <div class="container">
+        <h1>Имперский Петербург</h1>
+        
+        <p>Санкт-Петербург — это город дворцов. XVIII и XIX века подарили нам уникальное сочетание стилей: от пышного <span class="highlight">Елизаветинского барокко</span> до строгого <span class="highlight">Классицизма</span>. Каждый камень здесь хранит память о великих императорах и гениальных зодчих.</p>
+
+        <div class="info-block">
+            <h3>Зимний Дворец</h3>
+            <p>Главная резиденция российских императоров. Архитектор Бартоломео Растрелли создал шедевр, в котором 1084 комнаты и 1945 окон. Это не просто здание, это сердце русского барокко, воплощение роскоши и могущества империи.</p>
+        </div>
+
+        <h2>Архитектурная симфония</h2>
+        <p>Гранитные набережные, прямые проспекты и огромные площади — город проектировался как идеальное пространство для демонстрации имперской мощи. Исаакиевский собор, Казанский собор и здание Главного штаба формируют тот самый узнаваемый облик «Северной Пальмиры».</p>
+
+        <div class="grid-gallery">
+            <img src="эрмитраж1.webp" alt="Эрмитаж">
+            <img src="казакский.jpg" alt="Исаакиевский собор">
+            <img src="исаака 1.webp" alt="Казанский собор">
+        </div>
+
+        <footer>
+            <p>© 2026 Культурная столица. Красота в камне.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
